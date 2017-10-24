@@ -7,7 +7,7 @@
             <h1 ng-click="changeName()">{{firstname}}</h1>
         </div>
         <script>
-            var app = angular.module('myApp', []);
+            var app = angular.module('myApp', []); 
             app.controller('myCtrl', function($scope){
                 $scope.firstname = "John";
                 $scope.changeName = function() {
