@@ -2,12 +2,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch Angular_test.html (disable sourcemaps)",
-            "type": "chrome",
-            "port": 9222,
-            "request": "attach",
-            "sourceMaps": true,
-            "webRoot": "${workspaceRoot}/Angular_test.html"
+            "type": "firefox",
+            "request": "launch",
+            "reAttach": true,
+            "name": "Launch index.html",
+            "file": "${workspaceFolder}/Angular_test.html"
         }
     ]
 }
