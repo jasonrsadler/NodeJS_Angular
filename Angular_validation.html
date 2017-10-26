@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<HTML>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>    
+    
+    <BODY ng-app="">
+        <form name="myForm">
+            <input name="myInput" ng-model="myInput" type="email">    
+        </form>    
+
+        <p>This input's valid state is:</p>
+        <h1>{{myForm.myInput.$valid}}</h1>
+    </BODY>
+</HTML>
