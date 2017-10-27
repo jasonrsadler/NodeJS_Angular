@@ -2,12 +2,31 @@
 <HTML>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>    
     
-    <BODY ng-app="">
-        <form name="myForm">
-            <input name="myInput" ng-model="myInput" type="email">    
-        </form>    
-
-        <p>This input's valid state is:</p>
-        <h1>{{myForm.myInput.$valid}}</h1>
-    </BODY>
+</style>
+<BODY ng-app="myApp">
+    <form name="myForm">
+        <input name="myInput" ng-model="myInput" required my-directive>
+        <p>The input's valid state is: {{myForm.myInput.$valid}}</p>
+    </form>    
+    <script>
+        angular.module('myApp', [])
+        .directive('myDirective', function(){
+            return {
+                require: 'ngModel',
+                link: function(scope, element, attr, mCtrl){
+                    function myValidation(value){
+                        if (value.indexOf("e") > -1){
+                            mCtrl.$setValidity('charE', true);
+                        }
+                        else{
+                            mCtrl.$setValidity('charE', false);
+                        }
+                        return value
+                    }
+                    mCtrl.$parsers.push(myValidation);
+                }
+            };
+        });
+    </script>
+</BODY>
 </HTML>
